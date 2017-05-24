@@ -1,0 +1,35 @@
+{
+  "name": "krang",
+  "version": "1.0.0",
+  "description": "Read DB with your frontend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node krang.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/radenkovic/krang.git"
+  },
+  "keywords": [
+    "mysql",
+    "postgres",
+    "sql",
+    "mongodb",
+    "front-end",
+    "react",
+    "angular"
+  ],
+  "author": "Dan Radenkovic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/radenkovic/krang/issues"
+  },
+  "homepage": "https://github.com/radenkovic/krang#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.3",
+    "mysql": "^2.13.0"
+  }
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  <link rel="stylesheet" href="./style.css">
+  <title>Krang</title>
+</head>
+<body>
+  <header>
+      <div class="krang-title">Krang</div>
+  </header>
+  <main>
+    <div class="container">
+      <img src="./krang.jpg" class="krang-image" alt="Krang!">
+      <h1>Query Krang</h1>
+      <p>Krang Understands SQL, you can query him below:</p>
+      <input type="text" id="query" placeholder="type SQL query here">
+      <button id="go">Go!</button>
+    </div>
+
+  </main>
+  <div class="container">
+    <pre id="result">Result will appear here.</pre>
+  </div>
+  
+  <footer>
+    &copy; Dan Radenkovic 2017 / <a href="">github.com/radenkovic</a>
+  </footer>
+  
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  
+  
+  <!-- Krang Starts Here! -->
+  <script>
+    var query   = $('#query');
+    var go      = $('#go');
+    var result  = $('#result');
+    var image   = $('.krang-image');
+    
+    go.on('click', queryKrang);
+    
+    query.on('keypress', function(event) {
+      if (event.keyCode === 13) queryKrang();
+    });
+    
+    
+    function queryKrang() {
+      // image.addClass('rotate');
+      
+      $.post('/krang', {query: query.val()}, function(res) {
+        console.log(res);
+        setTimeout(function() {
+          image.removeClass('rotate');
+        }, 250);
+        
+        if (!res.success) {
+          result.html('Arghh, error:' + res.error);
+          return;  
+        }
+        result.html(JSON.stringify(res.results, null, 2));
+      });
+    }
+    
+    function API() {
+      
+    }
+    
+  
+  </script>
+  
+</body>
+</html>
