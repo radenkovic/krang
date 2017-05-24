@@ -1,6 +1,8 @@
 # Krang
 
 Totally (well, almost) _serverless_ concept that allows you to query DB from front-end. **Krang!** 😂
+
+
 ![Krang in action](https://raw.githubusercontent.com/radenkovic/krang/master/public/krang.gif)
 
 
